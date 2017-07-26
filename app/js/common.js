@@ -31,9 +31,9 @@ $('.js-toggle-btn--fixed').on('click', function() {
 	return false;
 });
 
-$(window).resize(function(){
-	narrowMenu();
-});
+// $(window).resize(function(){
+// 	narrowMenu();
+// });
 
 narrowMenu();
 
