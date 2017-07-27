@@ -13,14 +13,23 @@ $('#message-field').autoResize({
 });
 
 
+//Tabs in login form
+$('.login-form .tab-item').not(':first').hide();
+$('.login-form .tab').on('click', function() {
+	$('.login-form .tab').removeClass('active').eq($(this).index()).addClass('active');
+	$('.login-form .tab-item').hide().eq($(this).index()).fadeIn();
+}).eq(0).addClass('active');
+
+
 // open-close sidebar
 $('.js-toggle-btn').on('click', function() {
-	if ($(window).width() <= '480') {
+	var wWidth = $(window).width();
+	if (wWidth <= '480') {
 		$('.js-user-list').removeClass('show');
 		$(this).removeClass('on');
-	} else {
+	} else if (wWidth > '480' && wWidth <= '768') {
 		$(this).toggleClass('on');
-		$('.js-user-list').toggleClass('user-list--narrow');
+		$('.js-user-list').toggleClass('show');
 	}
 	return false;
 });
@@ -31,36 +40,24 @@ $('.js-toggle-btn--fixed').on('click', function() {
 	return false;
 });
 
-// $(window).resize(function(){
-// 	narrowMenu();
-// });
-
-narrowMenu();
-
-function narrowMenu() {
-	if ($(window).width() <= '480') {
-		$('.js-user-list').removeClass('user-list--narrow show');
-	} 
-	else if ($(window).width() > '480' && $(window).width() <= '768'  ) {
-		$('.js-user-list').addClass('user-list--narrow');
-		$('.js-toggle-btn').removeClass('on');
-	}
-	else {
-		$('.js-user-list').removeClass('user-list--narrow');
-		$('.js-toggle-btn').addClass('on');
-	}
-}
-
 
 // open-close searchform
 $('.js-search-btn-post').on('click', function(){
+
 	var searchField = $(this).prev('.js-search-field-post');
+
 	searchField.on('change', function(){
 		if(searchField.value !== "") {
 			$('.js-post-form').submit();
 		}
 	});
-	searchField.toggleClass('on').fadeToggle(200);
+
+	if (searchField.hasClass('on')) {
+		searchField.removeClass('on').fadeOut().blur();
+	} else {
+		searchField.addClass('on').fadeIn().focus();
+	}
+
 });
 
 
@@ -70,9 +67,19 @@ $('.js-dropdown-toggle').on('click', function() {
 	return false;
 });
 
-$('.js-dropdown-menu-item').on('click', function() {
+
+// Close drop down menu and searchform by clicking outside
+$(document).on('click', function(){
+	$('.js-search-field-post').fadeOut().removeClass('on');
 	$('.js-dropdown-menu').slideUp(200);
-	return false;
+});
+
+$(".js-search-btn-post").on('click', function(e){
+	e.stopPropagation();
+});
+
+$('.js-search-field-post').on('click', function(e){
+	e.stopPropagation();
 });
 
 
