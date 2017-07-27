@@ -44,7 +44,7 @@ $('.js-toggle-btn--fixed').on('click', function() {
 // open-close searchform
 $('.js-search-btn-post').on('click', function(){
 
-	var searchField = $(this).prev('.js-search-field-post');
+	var searchField = $('.js-search-field-post');
 
 	searchField.on('change', function(){
 		if(searchField.value !== "") {
@@ -53,11 +53,18 @@ $('.js-search-btn-post').on('click', function(){
 	});
 
 	if (searchField.hasClass('on')) {
-		searchField.removeClass('on').fadeOut().blur();
+		searchField.removeClass('on').fadeOut(200).blur();
+		$('.search-btn--post-submit').fadeOut(200);
 	} else {
-		searchField.addClass('on').fadeIn().focus();
+		searchField.addClass('on').fadeIn(200).focus();
+		$('.search-btn--post-submit').fadeIn(200);
 	}
 
+});
+
+$('.js-search-field-post').on('blur', function(){
+	$(this).fadeOut(200).removeClass('on');
+	$('.search-btn--post-submit').fadeOut(200);
 });
 
 
