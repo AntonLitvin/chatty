@@ -875,7 +875,8 @@ img {
   margin: 0;
   padding: 0;
   list-style-type: none;
-  padding-top: 53px; }
+  padding-top: 53px;
+  padding-bottom: 60px; }
 
 .message {
   padding: 15px 0;

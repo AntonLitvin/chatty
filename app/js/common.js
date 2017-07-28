@@ -91,7 +91,7 @@ $('.js-search-field-post').on('click', function(e){
 
 
 //set check when click on message-item
-$('.message').on('click', function() {
+$('.messages__list').on('click', '.message', function() {
 	var checkbox = $(this).find('input[type="checkbox"]');
 		if(checkbox.is(':checked')) {
 			checkbox.prop('checked', false);
@@ -122,6 +122,46 @@ $('.footer-button-delete').on('click', function() {
 
 	$('.footer-buttons').removeClass('show');
 });
+
+
+// Create and send new message
+function createPost() {
+	var newPost = $('<li class="message"></li>').append($('.js-message').html());
+	var text = $('#message-field').val().replace(/\n/g, '<br />');
+	var date = new Date();
+	var timeNow = date.getHours() + ':' + date.getMinutes();
+	newPost.find('.message__text p').html(text);
+	newPost.find('.message__time').html(timeNow);
+	$('.messages__list').append(newPost.clone());
+	$('#message-field').val('');
+	$('html, body').animate({scrollTop:$(document).height()}, 200);
+}
+
+
+// Sending message by clicking send-message-button
+$('.send-message-btn').on('click', function(e){
+	e.preventDefault();
+	createPost();
+});
+
+
+// Sending message by clicking Enter
+// $('#message-field').keydown(function (e) {
+// 	var keypressed = e.keyCode || e.which;
+// 	if (keypressed == 13) {
+// 		createPost();
+// 	}
+// });
+
+
+// Sending message by clicking  Ctrl+Enter
+$('#message-field').keydown(function(e){
+	if (e.which == 13 && e.ctrlKey) {
+		createPost();
+	}
+});
+
+
 
 
 });
