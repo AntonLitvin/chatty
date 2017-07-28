@@ -58,7 +58,7 @@ gulp.task('js', ['common-js'], function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js', // сюда добавляем библиотеки
 		'app/libs/autoResizeTextarea/autoResizeTextarea.min.js',
-		'app/libs/niceScroll/dist/jquery.nicescroll.min.js',
+		'app/libs/perfect-scrollbar/js/perfect-scrollbar.jquery.min.js',
 		//'app/js/common.min.js', // Всегда в конце, раскоментить, если хотим склеить весь js, удалить подключение common.js в index.html
 		])
 	.pipe(plumber())

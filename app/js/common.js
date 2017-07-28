@@ -13,16 +13,8 @@ $('#message-field').autoResize({
 });
 
 
-// nice scroll
-$('.js-user-list').niceScroll({
-	cursorcolor: "transparent",
-	cursorborder: "none"
-});
-// 	$('body').niceScroll({
-// 	cursorcolor: "transparent",
-// 	cursorborder: "none"
-// });
-// $('.js-post-list').niceScroll({cursorcolor:'#F2F7F7'});
+// perfect scrollbar
+// $('.js-user-list').perfectScrollbar();
 
 
 //Tabs in login form
@@ -42,6 +34,7 @@ $('.js-toggle-btn').on('click', function() {
 	} else if (wWidth > '480' && wWidth <= '768') {
 		$(this).toggleClass('on');
 		$('.js-user-list').toggleClass('show');
+		// $('.user-list-noscroll').toggleClass('show');
 	}
 	return false;
 });
@@ -136,7 +129,6 @@ $('.footer-button-delete').on('click', function() {
 });
 
 
-
 // Create and send new message
 function createPost() {
 	var newPost = $('<li class="message"></li>').append($('.js-message').html());
@@ -147,14 +139,14 @@ function createPost() {
 	newPost.find('.message__time').html(timeNow);
 	$('.messages__list').append(newPost.clone());
 	$('#message-field').val('');
-	$('.js-post-list').animate({scrollTop:$(document).height()}, 200);
-	// var postList = $('.js-post-list');
+	var postList = $('.js-post-list');
+	postList.animate({scrollTop:postList.prop('scrollHeight')}, 200);
 	// postList.scrollTop(postList.prop('scrollHeight'));
 }
 
 
 //automatic scroll to last post
-$('.js-post-list').animate({scrollTop:$(document).height()}, 200);
+$('.js-post-list').animate({scrollTop:$('.js-post-list').prop('scrollHeight')}, 200);
 
 
 // Sending message by clicking send-message-button

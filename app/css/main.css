@@ -414,6 +414,122 @@ template {
 [hidden] {
   display: none; }
 
+/* perfect-scrollbar v0.7.1 */
+.ps {
+  -ms-touch-action: auto;
+  touch-action: auto;
+  overflow: hidden !important;
+  -ms-overflow-style: none; }
+
+@supports (-ms-overflow-style: none) {
+  .ps {
+    overflow: auto !important; } }
+
+.ps.ps--active-x > .ps__scrollbar-x-rail, .ps.ps--active-y > .ps__scrollbar-y-rail {
+  display: block;
+  background-color: transparent; }
+
+.ps.ps--in-scrolling.ps--x > .ps__scrollbar-x-rail {
+  background-color: #eee;
+  opacity: .9; }
+
+.ps.ps--in-scrolling.ps--x > .ps__scrollbar-x-rail > .ps__scrollbar-x {
+  background-color: #999;
+  height: 11px; }
+
+.ps.ps--in-scrolling.ps--y > .ps__scrollbar-y-rail {
+  background-color: #eee;
+  opacity: .9; }
+
+.ps.ps--in-scrolling.ps--y > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+  background-color: #999;
+  width: 11px; }
+
+.ps > .ps__scrollbar-x-rail {
+  display: none;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+  bottom: 0px;
+  height: 15px; }
+
+.ps > .ps__scrollbar-x-rail > .ps__scrollbar-x {
+  position: absolute;
+  background-color: #aaa;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  -o-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  bottom: 2px;
+  height: 6px; }
+
+.ps > .ps__scrollbar-x-rail:hover > .ps__scrollbar-x, .ps > .ps__scrollbar-x-rail:active > .ps__scrollbar-x {
+  height: 11px; }
+
+.ps > .ps__scrollbar-y-rail {
+  display: none;
+  position: absolute;
+  opacity: 0;
+  -webkit-transition: background-color .2s linear, opacity .2s linear;
+  -o-transition: background-color .2s linear, opacity .2s linear;
+  transition: background-color .2s linear, opacity .2s linear;
+  right: 0;
+  width: 15px; }
+
+.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+  position: absolute;
+  background-color: #aaa;
+  -webkit-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  -o-transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out;
+  transition: background-color .2s linear, height .2s linear, width .2s ease-in-out, border-radius .2s ease-in-out, -webkit-border-radius .2s ease-in-out;
+  right: 2px;
+  width: 6px; }
+
+.ps > .ps__scrollbar-y-rail:hover > .ps__scrollbar-y, .ps > .ps__scrollbar-y-rail:active > .ps__scrollbar-y {
+  width: 11px; }
+
+.ps:hover.ps--in-scrolling.ps--x > .ps__scrollbar-x-rail {
+  background-color: #eee;
+  opacity: .9; }
+
+.ps:hover.ps--in-scrolling.ps--x > .ps__scrollbar-x-rail > .ps__scrollbar-x {
+  background-color: #999;
+  height: 11px; }
+
+.ps:hover.ps--in-scrolling.ps--y > .ps__scrollbar-y-rail {
+  background-color: #eee;
+  opacity: .9; }
+
+.ps:hover.ps--in-scrolling.ps--y > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+  background-color: #999;
+  width: 11px; }
+
+.ps:hover > .ps__scrollbar-x-rail, .ps:hover > .ps__scrollbar-y-rail {
+  opacity: .6; }
+
+.ps:hover > .ps__scrollbar-x-rail:hover {
+  background-color: #eee;
+  opacity: .9; }
+
+.ps:hover > .ps__scrollbar-x-rail:hover > .ps__scrollbar-x {
+  background-color: #999; }
+
+.ps:hover > .ps__scrollbar-y-rail:hover {
+  background-color: #eee;
+  opacity: .9; }
+
+.ps:hover > .ps__scrollbar-y-rail:hover > .ps__scrollbar-y {
+  background-color: #999; }
+
 *::-webkit-input-placeholder {
   color: #fff;
   opacity: 0.6; }
@@ -548,10 +664,17 @@ img {
           transform: rotate(-45deg) translate(4px, -4px); }
 
 /* ===== Sidebar header ===== */
-.user-list {
+.user-list-noscroll {
   float: left;
   width: 320px;
+  height: 100%;
+  overflow: hidden; }
+
+.user-list {
+  float: left;
+  width: 336px;
   padding: 15px 0px;
+  padding-right: 5px;
   background-color: #363E47;
   height: 100%;
   height: 100vh;
@@ -559,7 +682,8 @@ img {
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
-  z-index: 10; }
+  z-index: 10;
+  overflow-y: auto; }
 
 .user-list__header {
   padding: 0 30px; }
@@ -734,11 +858,11 @@ img {
   margin-left: 320px;
   background-color: #fff;
   position: relative;
-  overflow-y: scroll;
+  overflow-y: auto;
   height: 100vh; }
 
 .post-list::-webkit-scrollbar {
-  display: none; }
+  width: 0; }
 
 .post-list__header {
   height: 53px;
@@ -1283,6 +1407,10 @@ input.form-submit-btn {
 
 /* Large Devices, Wide Screens */
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .ps {
+    overflow: auto !important; } }
+
 @media only screen and (max-width: 1200px) {
   /* */ }
 
@@ -1301,11 +1429,15 @@ input.form-submit-btn {
     display: block; }
   .toggle-btn--fixed {
     display: none; }
-  .user-list {
+  .user-list-noscroll {
     position: absolute; }
+  .user-list {
+    position: absolute;
+    overflow-y: auto; }
   .user-list--narrow {
     width: 85px;
-    padding-top: 40px; }
+    padding-top: 40px;
+    padding-right: 0; }
     .user-list--narrow .user-list__header-logo {
       display: none; }
     .user-list--narrow .user-list__edit {
@@ -1323,7 +1455,8 @@ input.form-submit-btn {
       right: 15px; }
   .user-list.show {
     width: 320px;
-    padding-top: 15px; }
+    padding-top: 15px;
+    padding-right: 0; }
     .user-list.show .user-list__header-logo {
       display: block; }
     .user-list.show .user-list__edit {
