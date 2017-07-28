@@ -18,11 +18,11 @@ $('.js-user-list').niceScroll({
 	cursorcolor: "transparent",
 	cursorborder: "none"
 });
-	$('body').niceScroll({
-	cursorcolor: "transparent",
-	cursorborder: "none"
-});
-$('.js-post-list').niceScroll({cursorcolor:'#F2F7F7'});
+// 	$('body').niceScroll({
+// 	cursorcolor: "transparent",
+// 	cursorborder: "none"
+// });
+// $('.js-post-list').niceScroll({cursorcolor:'#F2F7F7'});
 
 
 //Tabs in login form
@@ -135,7 +135,6 @@ $('.footer-button-delete').on('click', function() {
 	$('.footer-buttons').removeClass('show');
 });
 
-$('.js-post-list').animate({scrollTop:$(document).height()}, 200);
 
 
 // Create and send new message
@@ -148,13 +147,13 @@ function createPost() {
 	newPost.find('.message__time').html(timeNow);
 	$('.messages__list').append(newPost.clone());
 	$('#message-field').val('');
-	// $('.js-post-list').animate({scrollTop:$(document).height()}, 200);
-	var postList = $('.js-post-list');
-	postList.scrollTop(postList.prop('scrollHeight'));
+	$('.js-post-list').animate({scrollTop:$(document).height()}, 200);
+	// var postList = $('.js-post-list');
+	// postList.scrollTop(postList.prop('scrollHeight'));
 }
 
 
-// automatic scroll to last post
+//automatic scroll to last post
 $('.js-post-list').animate({scrollTop:$(document).height()}, 200);
 
 
