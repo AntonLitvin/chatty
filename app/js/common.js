@@ -135,6 +135,7 @@ function createPost() {
 	$('.messages__list').append(newPost.clone());
 	$('#message-field').val('');
 	$('html, body').animate({scrollTop:$(document).height()}, 200);
+	$('.js-user-list').height($(document).height());
 }
 
 
