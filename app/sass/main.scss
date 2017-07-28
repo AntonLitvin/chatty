@@ -174,10 +174,12 @@ img {
 	width: 320px;
 	padding: 15px 0px;
 	background-color: $grey;
-	min-height: 100vh;
+	height: 100vh;
 	position: relative;
 	transition: all 0.2s;
 	z-index: 10;
+	// overflow-y: auto;
+	// margin-right: -15px;
 }
 
 .user-list__header {
@@ -371,6 +373,8 @@ img {
 	margin-left: 320px;
 	background-color: #fff;
 	position: relative;
+	overflow-y: auto;
+	height: 100vh; 
 }
 
 .post-list__header {

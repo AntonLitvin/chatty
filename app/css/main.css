@@ -553,7 +553,7 @@ img {
   width: 320px;
   padding: 15px 0px;
   background-color: #363E47;
-  min-height: 100vh;
+  height: 100vh;
   position: relative;
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
@@ -732,7 +732,9 @@ img {
 .post-list {
   margin-left: 320px;
   background-color: #fff;
-  position: relative; }
+  position: relative;
+  overflow-y: auto;
+  height: 100vh; }
 
 .post-list__header {
   height: 53px;
