@@ -383,11 +383,14 @@ img {
 	position: relative;
 	overflow-y: auto;
 	height: 100vh; 
+
+	-ms-overflow-style: none;
 }
 
 .post-list::-webkit-scrollbar {
-	width: 0;
+	display: none;
 }
+
 
 .post-list__header {
 	height: 53px;
@@ -545,6 +548,7 @@ img {
 	list-style-type: none;
 	padding-top: 53px;
 	padding-bottom: 50px;
+	height: 100%;
 }
 
 .message {
@@ -644,6 +648,7 @@ img {
 	bottom: 0;
 	width: 680px;
 	overflow: hidden;
+	z-index: 1;
 	textarea {
 		resize: none;
 		padding: 5px 15px;

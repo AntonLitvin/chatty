@@ -14,7 +14,7 @@ $('#message-field').autoResize({
 
 
 // perfect scrollbar
-// $('.js-user-list').perfectScrollbar();
+// $('.post-list').perfectScrollbar();
 
 
 //Tabs in login form
@@ -156,23 +156,18 @@ $('.send-message-btn').on('click', function(e){
 });
 
 
-// Sending message by clicking Enter
-// $('#message-field').keydown(function (e) {
-// 	var keypressed = e.keyCode || e.which;
-// 	if (keypressed == 13) {
-// 		createPost();
-// 	}
-// });
-
-
-// Sending message by clicking  Ctrl+Enter
+// Sending message by clicking Enter, new line Ctrl+Enter
 $('#message-field').keydown(function(e){
-	if (e.which == 13 && e.ctrlKey) {
+	if (e.which == 13 && !e.ctrlKey) {
 		createPost();
+		return false;
+	}
+	if (e.which == 13 && e.ctrlKey) {
+		$(this).val(function(i,val){
+			return val + "\n";
+		});
 	}
 });
-
-
 
 
 });
