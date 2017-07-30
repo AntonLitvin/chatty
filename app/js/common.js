@@ -117,12 +117,23 @@ $('.footer-button-close').on('click', function() {
 
 
 //delete post when click to delete button
-$('.footer-button-delete').on('click', function() {
+$('.footer-button-delete, .js-dropdown-item-delete').on('click', function() {
 
 	$('.message').each(function(){
 		if( $(this).hasClass('checked') ) {
 			$(this).remove();
 		}
+	});
+
+	$('.footer-buttons').removeClass('show');
+});
+
+
+//clear history
+$('.js-dropdown-item-clear').on('click', function() {
+
+	$('.message').each(function(){
+		$(this).remove();
 	});
 
 	$('.footer-buttons').removeClass('show');

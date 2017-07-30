@@ -233,6 +233,7 @@
 					<span class="chat-list__message-count  chat-list__message-count--hidden">3</span>
 				</a>
 			</li>
+
 			<li>
 				<a href="#1" class="chat-list__item clearfix">
 					<div class="chat-list__item-img">
@@ -251,6 +252,7 @@
 					<span class="chat-list__message-count  chat-list__message-count--hidden">3</span>
 				</a>
 			</li>
+
 			<li>
 				<a href="#1" class="chat-list__item clearfix">
 					<div class="chat-list__item-img">
@@ -299,10 +301,10 @@
 				<div class="post-list__menu">
 					<a href="#1" class="post-list__menu-btn js-dropdown-toggle">menu</a>
 					<ul class="post-list__dropdown js-dropdown-menu" style="list-style-type: none">
-						<li><a href="login.html" class="post-list__dropdown-item  js-dropdown-menu-item">Delete</a></li>
-						<li><a href="login.html" class="post-list__dropdown-item  js-dropdown-menu-item">Clear history</a></li>
-						<li><a href="login.html" class="post-list__dropdown-item  js-dropdown-menu-item">Block user</a></li>
-						<li><a href="login.html" class="post-list__dropdown-item  js-dropdown-menu-item">Show attachments</a></li>
+						<li><a href="#1" class="post-list__dropdown-item  js-dropdown-item-delete">Delete</a></li>
+						<li><a href="#1" class="post-list__dropdown-item  js-dropdown-item-clear">Clear history</a></li>
+						<li><a href="login.html" class="post-list__dropdown-item">Block user</a></li>
+						<li><a href="login.html" class="post-list__dropdown-item">Show attachments</a></li>
 					</ul>
 				</div>
 			</div>
@@ -312,7 +314,28 @@
 		<div class="messages">
 			<ul class="messages__list" style="list-style-type: none">
 
-				<li class="message js-message">
+			<script type="text/template" class="js-message"">
+				<div class="message__check">
+					<input type="checkbox" id="post1">
+					<label for="post1"><span></span></label>
+				</div>
+				<div class="message__img">
+					<img src="img/ava.jpg" alt="ava">
+				</div>
+				<div class="message__text-wrapper">
+					<div class="message__name">
+						Greg Tomson
+					</div>
+					<div class="message__text">
+						<p>Lorem ipsum</p>
+					</div>
+				</div>
+				<div class="message__time-wrapper">
+					<span class="message__time">15m ago</span>
+				</div>
+			</script>
+
+				<li class="message">
 					<div class="message__check">
 						<input type="checkbox" id="post1">
 						<label for="post1"><span></span></label>
