@@ -156,13 +156,13 @@ $('.send-message-btn').on('click', function(e){
 });
 
 
-// Sending message by clicking Enter, new line Ctrl+Enter
+// Sending message by clicking Enter, new line Ctrl+Enter, new line after empty line Shift+Enter
 $('#message-field').keydown(function(e){
-	if (e.which == 13 && !e.ctrlKey) {
+	if ((e.which == 13 && !e.ctrlKey) && (e.which == 13 && !e.shiftKey)) {
 		createPost();
 		return false;
 	}
-	if (e.which == 13 && e.ctrlKey) {
+	if ((e.which == 13 && e.ctrlKey) || (e.which == 13 && e.shiftKey)) {
 		$(this).val(function(i,val){
 			return val + "\n";
 		});
